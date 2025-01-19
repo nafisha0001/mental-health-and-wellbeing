@@ -1,0 +1,40 @@
+#meditation-button-2, .restart-button{
+    background-color: #C9D2E2;
+    color: black !important;
+    width: 150px;
+}
+
+#calmBreating-button-2, .start-stop-button {
+    background-color: #7297DB;
+    color: white;
+    width: 150px;
+    margin-right: 20px;
+}
+
+.restart-button, .start-stop-button{
+    margin-top: 50px;
+}
+
+.timer{
+    font-size: 50px;
+}
+
+#back-meditation{
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+}
+
+
+.calm-breathing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    margin: 0px 100px;
+  }
+
+.button-text{
+    align-self: flex-end;
+}

@@ -1,0 +1,42 @@
+.yoga-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; 
+    align-items: center; 
+    width: 90%;
+    /* margin: 0 0 50px 50px;  */
+}
+
+.yoga-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    width: 60%;
+}
+
+.yoga-content h1 {
+    font-weight: bolder;
+    margin: 0; 
+}
+
+.yoga-content p {
+    color: black;
+    margin: 5px 0; 
+}
+
+.yoga-name img {
+    width: 30%; 
+    margin-right: 50px; 
+}
+
+#yoga-start-button{
+    margin: 20px;
+    width: 200px;
+}
+
+#yoga-start{
+    text-decoration: None;
+    color: white;
+    font-size: 20px;
+}

@@ -1,0 +1,8 @@
+.workshop-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    column-gap: 30px; 
+    row-gap: 50px; 
+    padding: 40px; 
+  }
+  

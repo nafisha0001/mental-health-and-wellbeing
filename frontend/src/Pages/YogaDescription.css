@@ -1,0 +1,18 @@
+.yoga-description-container {
+    padding: 20px;               
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  
+  .yoga-description-container img{
+    height: 400px;
+    width: auto;
+  }
+
+  .yoga-steps{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }

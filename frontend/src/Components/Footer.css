@@ -1,0 +1,153 @@
+.footer {
+    margin-top: 20px;
+    background-color: #4e4e4e; /* Match the grey background */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  
+  .newsletter {
+    margin-bottom: 30px;
+
+  }
+  
+  .newsletter p {
+    font-size: 22px;
+    color: #e7e7e7;
+  }
+
+
+  .newsletter-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter-input input {
+    
+    padding-left: 20px;
+    border-radius: 20px 0 0 20px; /* Rounded only on the left */
+    border: 1px solid #f5f5f5;
+    width: 300px;
+    height: 40px;
+    outline: none;
+    border-right: none; /* Remove right border to blend with the button */
+    margin: 0; /* Ensure no margin */
+}
+
+.newsletter-input button {
+    background-color: #8e9fd2;
+    color: white;
+    outline:2px solid #8e9fd2;
+    
+    border-left: none; /* Remove left border to blend with input */
+    border-radius: 0 20px 20px 0; /* Rounded only on the right */
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 40px; /* Match height of input */
+    margin: 0; /* Ensure no margin */
+}
+
+.newsletter-input button:hover {
+    background-color: #7c8bb5;
+}
+
+  
+  
+
+
+
+
+ 
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+    
+  }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .footer-logo img {
+    height: 30px;
+  }
+  
+  .footer-nav {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+  }
+  
+  .footer-nav li a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .language-selector select {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f5f5f5;
+    color: #4e4e4e;
+  }
+  
+  
+  
+  
+
+  .footer hr {
+    border: none;
+    height: 2px;
+    margin: 0;
+    margin-top: -8px;
+    padding: 0;
+    
+    background-color: #8e9fd2;
+    width: 100%;
+  }
+  
+/* Footer.css */
+.footer-right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icon-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.twitter{
+  color:aqua;
+
+}
+.facebook{
+  color: rgb(53, 53, 244);
+}
+.linkedIn{
+  color: blue;
+}
+.youTube{
+  color: rgb(250, 44, 44);
+}
+
+.footer-copyright>p>a{
+  color: #fff;
+}
+.footer-copyright>p{
+  color: #e7e7e7;
+}

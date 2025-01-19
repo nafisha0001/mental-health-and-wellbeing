@@ -1,0 +1,168 @@
+.workshop-card {
+    width: auto;
+    height: 320px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .workshop-card-image-container {
+    height: 150px;
+    background-color: #eee; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .workshop-card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  .workshop-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+  }
+
+  .workshop-details{
+    color: #666;
+    font-size: 1em;
+  }
+  
+  .workshop-card-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .workshop-enroll-button, .workshop-details-button {
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .workshop-enroll-button {
+    background-color: #7297DB;
+    color: white;
+    width: 9em;
+  }
+  
+  .workshop-details-button {
+    background-color: #C9D2E2;
+    color: black;
+    width: 9em;
+  }
+ 
+  .workshop-card-content h2 {
+    /* margin-top: 0; */
+    margin-bottom: 10px; 
+}
+
+.workshop-details {
+    margin: 0 0 10px 0; 
+    color: #666;
+    font-size: 1em;
+}
+
+.workshop-card-buttons {
+    margin-top: 10px; 
+}
+
+
+
+
+
+.workshop-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 1000; */
+  /* padding: 20px; */
+}
+
+.workshop-dialog-content {
+  /* position: relative; */
+  background-color: white;
+  padding: 20px 40px 20px 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+}
+
+.workshop-dialog-content h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.workshop-dialog-content p {
+  margin-bottom: 15px;
+  font-size: 1em;
+}
+
+.email-input {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px 0px 10px 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.workshop-dialog-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialog-cancel-button, .dialog-enroll-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dialog-cancel-button {
+  background-color: #C9D2E2; 
+  color: black;
+}
+
+.dialog-enroll-button {
+  background-color: #7297DB; 
+  color: white;
+}
+
+.invalid-input {
+  border: 1px solid red;
+}
+
+.close-dialog-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 5;
+  color: black;
+}
+
+.details-dialog {
+  position: relative;
+}
+
+.workshop-dialog-buttons {
+  margin-top: 20px;
+  text-align: right;
+}

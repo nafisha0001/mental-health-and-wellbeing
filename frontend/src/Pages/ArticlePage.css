@@ -1,0 +1,52 @@
+.articles-page {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #ffffff;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content:flex-start;
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .nav-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #a6bacf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .article-separator {
+    margin: 40px 0;
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, #278cad, #689189);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.more-button button {
+  padding: 10px 20px;
+  background-color: #a6bacf;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.more-button button:hover {
+  background-color: #7297DB;
+}

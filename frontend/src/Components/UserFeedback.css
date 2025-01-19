@@ -1,0 +1,32 @@
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto; 
+  }
+  
+  .feedback-cards-container {
+    display: flex;
+    justify-content: space-evenly; 
+    overflow: hidden; 
+    max-width: 960px; 
+    padding: 20px;
+  }
+  
+.feedback-movement {
+  height: 50px;
+  background-color: #ccc; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s; 
+}
+
+.feedback-movement:hover {
+  background-color: red; 
+}

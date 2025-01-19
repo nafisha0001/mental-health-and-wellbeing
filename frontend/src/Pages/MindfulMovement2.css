@@ -1,0 +1,33 @@
+/* Apply these styles to the buttons and container in the updated component */
+.yoga-button-2 {
+    background-color: #C9D2E2;
+    color: black;
+    width: 90px;
+}
+
+.exercise-button-2 {
+    background-color: #7297DB;
+    color: white;
+    width: 90px;
+}
+
+#back-yoga{
+    text-decoration: None;
+    color: inherit; /* Inherits the color from the button */
+    font: inherit; /* Inherits the font style from the button */
+}
+
+.mindful-movement-exercise {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 50px;
+}
+
+.exercise-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    gap: 50px;
+}

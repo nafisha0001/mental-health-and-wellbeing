@@ -1,0 +1,44 @@
+.MuiDialog-paper {
+    width: 300px !important; 
+    max-width: 300px !important; 
+    margin: auto; 
+    padding: 20px;
+  }
+
+.session-diolog-buttons{
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 10px; */
+}
+
+.session-dialog-confirm{
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #7297DB !important;
+    color: white !important; 
+  } 
+
+  .session-dialog-cancel{
+    background-color: #C9D2E2 !important; 
+    color: black !important;
+  }
+
+  .email-input {
+    width: 100%;           /* Make the input box full width */
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc; /* Default border color */
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .email-input.invalid {
+    border-color: red;      /* Change border color to red when invalid */
+  }
+  
+  .email-input:focus {
+    outline: none;
+    border-color: #007BFF;  /* Change border color when focused */
+  }
+  

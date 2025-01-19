@@ -1,0 +1,38 @@
+.article-preview {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .article-preview.zigzag {
+    flex-direction: row-reverse;
+  }
+  
+  .article-image {
+    
+    width: 55%;
+    height: 250px;
+    border-radius: 8px;
+  }
+  
+  .article-content {
+    width: 55%;
+    padding: 1rem;
+  }
+  
+  .read-more-btn {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .read-more-btn:hover {
+    background-color: #0056b3;
+  }
+  

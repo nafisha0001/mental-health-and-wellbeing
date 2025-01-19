@@ -1,0 +1,43 @@
+#meditation-button{
+    background-color: #7297DB;
+    color: white !important;
+    width: 150px;
+}
+
+#calmBreating-button {
+    background-color: #C9D2E2;
+    color: black !important;
+    width: 150px;
+}
+
+#back-calmBreathing{
+    text-decoration: None;
+    color: inherit; /* Inherits the color from the button */
+    font: inherit;
+}
+
+.meditation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0px 20px;
+  }
+
+  .video-card {
+    margin: 10px;
+    text-align: left; 
+  }
+  
+  .video-card a {
+    text-decoration: none; 
+    color: black; 
+    display: block; 
+    margin-top: 5px; 
+    font-size: 16px; 
+  }
+  
+  .video-card a:hover {
+    color: gray; 
+  }
+  
+  
