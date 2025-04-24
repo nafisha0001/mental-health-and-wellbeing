@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './WorkshopCard.css';
 
-function WorkshopCard({ title, price, date, image, description }) {
+function WorkshopCard({ title, price, date, imageURL, description }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
   const [isDetailsDialogOpen, setIsDetailsDialogOpen] = useState(false);
@@ -19,14 +19,40 @@ function WorkshopCard({ title, price, date, image, description }) {
   };
 
   // Handle enrollment button click inside the dialog
-  const handleDialogEnrollClick = () => {
-    if (isEmailValid && email) {
-      setIsDialogOpen(false); 
-      setIsSuccessDialogOpen(true); 
-    } else {
+  // const handleDialogEnrollClick = () => {
+  //   if (isEmailValid && email) {
+  //     setIsDialogOpen(false); 
+  //     setIsSuccessDialogOpen(true); 
+  //   } else {
+  //     alert('Please enter a valid email.');
+  //   }
+  // };
+  const handleDialogEnrollClick = async () => {
+    if (!isEmailValid || !email) {
       alert('Please enter a valid email.');
+      return;
+    }
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/enrollments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, workshopTitle: title, workshopDate: date }),
+      });
+  
+      const result = await response.json();
+      
+      if (response.ok) {
+        setIsDialogOpen(false);
+        setIsSuccessDialogOpen(true);
+      } else {
+        alert(result.message || 'Failed to enroll. Please try again.');
+      }
+    } catch (error) {
+      alert('Error enrolling. Please check your network and try again.');
     }
   };
+  
 
   const handleWorkshopDialogOpen = () => {
     setIsDialogOpen(true);
@@ -52,7 +78,7 @@ function WorkshopCard({ title, price, date, image, description }) {
     <>
       <div className="workshop-card">
         <div className="workshop-card-image-container">
-          <img src={image} alt="Workshop" />
+          <img src={imageURL} alt="Workshop" />
         </div>
         <div className="workshop-card-content">
           <h2>{title}</h2>

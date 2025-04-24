@@ -1,263 +1,49 @@
-import React, { useState } from 'react';
-import './BooksPage.css'; 
-import { Link } from 'react-router-dom'; 
-
-
-const booksData = [
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://reader.bookfusion.com/books/1216743-can-music-make-you-sick?type=epub'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-  {
-    title: 'Harmony of Mind',
-    author: 'Thinh Relax',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/harmony-of-mind'
-  },
-  {
-    title: 'Five People You Meet in Heaven',
-    author: 'Mitch Albom',
-    image: require('../Images/book1.png'),
-    readLink: 'https://link-to-online-book.com/five-people'
-  },
-
-  // Add more books similarly
-];
+import React, { useState, useEffect } from "react";
+import "./BooksPage.css";
+import { Link } from "react-router-dom";
 
 const BooksPage = () => {
-  const [visibleRows, setVisibleRows] = useState(4); // State to manage visible rows
+  const [books, setBooks] = useState([]);
+  const [visibleRows, setVisibleRows] = useState(4);
 
-  // Function to handle the "More..." button click
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/books");
+        const data = await response.json();
+        setBooks(data);
+      } catch (error) {
+        console.error("Error fetching books:", error);
+      }
+    };
+
+    fetchBooks();
+  }, []);
+
   const showMoreBooks = () => {
-    setVisibleRows((prevRows) => prevRows + 4); // Show 4 more rows when clicked
+    setVisibleRows((prevRows) => prevRows + 4);
   };
 
-  const visibleBooks = booksData.slice(0, visibleRows * 4); // Calculate visible books based on rows
+  const visibleBooks = books.slice(0, visibleRows * 4);
 
   return (
     <div className="books-page">
-      {/* Navigation buttons */}
       <div className="navigation">
-      <Link to="/wellness-library-books">
-          <button className="nav-button" >Books</button> {/* Use Link to navigate */}
-      </Link>
-      <Link to="/articles">
-           <button className="nav-button">Articles</button> {/* Use Link to navigate */}
+        <Link to="/wellness-library-books">
+          <button className="nav-button">Books</button>
+        </Link>
+        <Link to="/articles">
+          <button className="nav-button">Articles</button>
         </Link>
         <Link to="/wellness-library-videos">
-          <button className="nav-button">Videos</button> {/* Use Link to navigate */}
+          <button className="nav-button">Videos</button>
         </Link>
-        
       </div>
 
       <div className="books-grid">
         {visibleBooks.map((book, index) => (
           <div key={index} className="book-item">
-            <img
-              src={book.image}
-              alt={book.title}
-              className="book-image"
-            />
+            <img src={book.image} alt={book.title} className="book-image" />
             <div className="hover-options">
               <a href={book.readLink} target="_blank" rel="noopener noreferrer" className="read-link">
                 Read the Book
@@ -267,8 +53,7 @@ const BooksPage = () => {
         ))}
       </div>
 
-      {/* More Button */}
-      {visibleRows * 4 < booksData.length && (
+      {visibleRows * 4 < books.length && (
         <div className="more-button">
           <button onClick={showMoreBooks}>More...</button>
         </div>

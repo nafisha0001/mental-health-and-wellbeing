@@ -1,66 +1,38 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './VideoPlayer.css'
-
-// Sample video data
-const videosData = [
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/embed/YRJ6xoiRcpQ',
-    description: 'Learn how to practice mindfulness meditation and discover the benefits of staying present in the moment. This video guides you through simple techniques to improve your focus and mental well-being.',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/embed/YRJ6xoiRcpQ',
-    description: 'Learn how to practice mindfulness meditation and discover the benefits of staying present in the moment. This video guides you through simple techniques to improve your focus and mental well-being.',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/embed/YRJ6xoiRcpQ',
-    description: 'Learn how to practice mindfulness meditation and discover the benefits of staying present in the moment. This video guides you through simple techniques to improve your focus and mental well-being.',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/embed/YRJ6xoiRcpQ',
-    description: 'Learn how to practice mindfulness meditation and discover the benefits of staying present in the moment. This video guides you through simple techniques to improve your focus and mental well-being.',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/embed/YRJ6xoiRcpQ',
-    description: 'Learn how to practice mindfulness meditation and discover the benefits of staying present in the moment. This video guides you through simple techniques to improve your focus and mental well-being.',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/embed/YRJ6xoiRcpQ',
-    description: 'Learn how to practice mindfulness meditation and discover the benefits of staying present in the moment. This video guides you through simple techniques to improve your focus and mental well-being.',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/embed/YRJ6xoiRcpQ',
-    description: 'Learn how to practice mindfulness meditation and discover the benefits of staying present in the moment. This video guides you through simple techniques to improve your focus and mental well-being.',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/embed/YRJ6xoiRcpQ',
-    description: 'Learn how to practice mindfulness meditation and discover the benefits of staying present in the moment. This video guides you through simple techniques to improve your focus and mental well-being.',
-  },
-  
-];
+import axios from 'axios';
+import './VideoPlayer.css';
 
 const VideoPlayer = () => {
-  const { id } = useParams(); // Get the video ID from the URL
-  const video = videosData[id]; // Find the video based on the ID
-
-  // Feedback state
+  const { id } = useParams();
+  const [video, setVideo] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [feedback, setFeedback] = useState('');
 
-  // Handle feedback submission
+  useEffect(() => {
+    const fetchVideo = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/videos/${id}`);
+        setVideo(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching video:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchVideo();
+  }, [id]);
+
+  if (loading) return <p>Loading...</p>;
+  if (!video) return <p>Video not found.</p>;
+
   const handleFeedbackSubmit = (e) => {
     e.preventDefault();
     console.log('Feedback submitted:', feedback);
     alert('Thank you for your feedback!');
-    setFeedback(''); // Clear the feedback box after submission
+    setFeedback('');
   };
 
   return (
@@ -68,7 +40,6 @@ const VideoPlayer = () => {
       <h2>{video.title}</h2>
 
       <div className="video-and-description">
-        {/* Video Player */}
         <div className="video-container">
           <iframe
             src={video.videoLink}
@@ -79,13 +50,10 @@ const VideoPlayer = () => {
           ></iframe>
         </div>
 
-        {/* Description Section */}
         <div className="description-section">
           <p>{video.description}</p>
         </div>
       </div>
-
-      {/* Feedback Form */}
       <div className="feedback-form">
         <form onSubmit={handleFeedbackSubmit}>
           <label htmlFor="feedback">Your Feedback</label>

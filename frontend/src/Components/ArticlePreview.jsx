@@ -10,7 +10,7 @@ const ArticlePreview = ({ article, isZigZag }) => {
       <div className="article-content">
         <h2>{article.title}</h2>
         <p>{article.preview}</p>
-        <Link to={`/article/${article.id}`}>
+        <Link to={`/articles/${article._id}`}>
           <button className="read-more-btn">Read more</button>
         </Link>
       </div>

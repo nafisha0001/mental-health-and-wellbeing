@@ -72,10 +72,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 4px;
   }
   
   .footer-logo img {
-    height: 30px;
+    height: 40px;
+    width: 100px;
   }
   
   .footer-nav {
@@ -145,6 +147,9 @@
   color: rgb(250, 44, 44);
 }
 
+.footer-copyright{
+  margin-left:42%;
+}
 .footer-copyright>p>a{
   color: #fff;
 }

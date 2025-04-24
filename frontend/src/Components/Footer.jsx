@@ -3,6 +3,8 @@ import React from 'react';
 import './Footer.css'; // External CSS for styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
+import logo from '../Images/logo.png'
 
 const Footer = () => {
   return (
@@ -17,33 +19,27 @@ const Footer = () => {
 
       <div className="footer-links">
         <div className="footer-logo">
-          <img src="https://as2.ftcdn.net/v2/jpg/06/32/87/91/1000_F_632879123_oONQU284ijVi7JdPR5vwQuhpuUzVXKcE.jpg" alt="MindCare Logo" />
-          <span>MindCare</span>
+          <img src={logo} alt="HappyHead Logo" />
+          
         </div>
 
         <ul className="footer-nav">
           <li><a href="/pricing">Pricing</a></li>
+          <Link to="/about-us">
           <li><a href="/about">About us</a></li>
-          <li><a href="/features">Features</a></li>
-          <li><a href="/help-center">Help Center</a></li>
-          <li><a href="/contact">Contact us</a></li>
+        </Link>
+          
           <li><a href="/faqs">FAQs</a></li>
-          <li><a href="/careers">Careers</a></li>
+          
         </ul>
       </div>
 
       <hr/>
 
       <div className="footer-bottom">
-        <div className="language-selector">
-          <select>
-            <option value="en">English</option>
-            <option value="es">Spanish</option>
-          </select>
-        </div>
-
+        
         <div className="footer-copyright">
-          <p>© 2022 Brand, Inc. - <a href="/privacy">Privacy</a> - <a href="/terms">Terms</a> - <a href="/sitemap">Sitemap</a></p>
+          <p>© 2024, Inc. - <a href="/privacy">Privacy</a> - <a href="/terms">Terms</a> - <a href="/sitemap">Sitemap</a></p>
         </div>
         <div className="footer-right">
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="icon-link twitter">

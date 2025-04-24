@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './MeditationVideo.css';
 
-const videos = {
-  '1': { title: 'Guided Meditation for Positive Energy, Relaxation, Peace', videoId: '86m4RC_ADEY' },
-  '2': { title: '5-Minute Meditation You Can Do Anywhere', videoId: 'inpok4MKVLM' },
-  '3': { title: '10-Minute Meditation For Anxiety', videoId: 'O-6f5wQXSu8' },
-  '4': { title: 'Guided Meditation for Positive Energy, Relaxation, Peace', videoId: '86m4RC_ADEY' },
-  '5': { title: '5-Minute Meditation You Can Do Anywhere', videoId: 'inpok4MKVLM' },
-  '6': { title: '10-Minute Meditation For Anxiety', videoId: 'O-6f5wQXSu8' }
-};
-
-function MeditationVideo() {
+const MeditationVideo = () => {
   const { id } = useParams();
-  const video = videos[id];
+  const [video, setVideo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
+  useEffect(() => {
+    const fetchVideo = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/api/meditation/${id}`);
+        if (!response.ok) throw new Error('Failed to fetch video');
+        
+        const data = await response.json();
+        setVideo(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVideo();
+  }, [id]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   if (!video) return <p>Video not found</p>;
 
   return (
@@ -31,6 +44,6 @@ function MeditationVideo() {
       ></iframe>
     </div>
   );
-}
+};
 
 export default MeditationVideo;

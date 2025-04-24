@@ -1,241 +1,41 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import './VideosPage.css';
 
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-// import './VideosPage.css'; // Add appropriate styling
-
-// const videosData = [
-//   {
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },
-//   {
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },{
-//     title: 'Mindfulness Meditation',
-//     videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-//     thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-//   },
-// ];
-
-// const VideosPage = () => {
-//   const [visibleRows, setVisibleRows] = useState(4);
-
-//   const showMoreVideos = () => {
-//     setVisibleRows((prevRows) => prevRows + 4); // Show 4 more rows when clicked
-//   };
-
-//   const visibleVideos = videosData.slice(0, visibleRows * 4); // Calculate visible videos based on rows
-
-//   return (
-//     <div className="videos-page">
-//       {/* Navigation buttons */}
-//       <div className="navigation">
-//       <Link to="/wellness-library-books">
-//           <button className="nav-button" >Books</button> {/* Use Link to navigate */}
-//       </Link>
-//       <Link to="/articles">
-//            <button className="nav-button">Articles</button> {/* Use Link to navigate */}
-//         </Link>
-//         <Link to="/wellness-library-videos">
-//           <button className="nav-button">Videos</button> {/* Use Link to navigate */}
-//         </Link>
-        
-//       </div>
-//       <div className="videos-grid">
-//         {visibleVideos.map((video, index) => (
-//           <div key={index} className="video-item">
-//             <img
-//               src={video.thumbnail}
-//               alt={video.title}
-//               className="video-thumbnail"
-//             />
-//             <div className="hover-options">
-//               <Link to={`/video/${index}`} className="view-link">
-//                 View the Video
-//               </Link>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* More Button */}
-//       {visibleRows * 4 < videosData.length && (
-//         <div className="more-button">
-//           <button onClick={showMoreVideos}>More...</button>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default VideosPage;
-import React, { useState } from 'react'; 
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import './VideosPage.css'; // Add appropriate styling
-
-const videosData = [
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-    thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-    thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-    thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-    thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-    thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-    thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-    thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-    thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-    thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-  },
-  {
-    title: 'Mindfulness Meditation',
-    videoLink: 'https://www.youtube.com/YRJ6xoiRcpQ',
-    thumbnail: 'https://img.youtube.com/vi/YRJ6xoiRcpQ/0.jpg',
-  },
-  // Add more video data...
-];
-
-// VideoCard Component
-const VideoCard = ({ video, index }) => {
-  return (
-    <Link to={`/video/${index}`} className="video-card">
-      <img src={video.thumbnail} alt={video.title} className="video-thumbnail" />
-      <div className="video-title">{video.title}</div>
-    </Link>
-  );
-};
+const VideoCard = ({ video }) => (
+  <Link to={`/video/${video._id}`} className="video-card">
+    <img src={video.thumbnail} alt={video.title} className="video-thumbnail" />
+    <div className="video-title">{video.title}</div>
+  </Link>
+);
 
 const VideosPage = () => {
-  const [visibleRows, setVisibleRows] = useState(4);
+  const [videos, setVideos] = useState([]);
+  const [visibleVideos, setVisibleVideos] = useState(8); // Show 8 videos initially
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const showMoreVideos = () => {
-    setVisibleRows((prevRows) => prevRows + 4); // Show 4 more rows when clicked
-  };
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const { data } = await axios.get('http://localhost:5000/api/videos');
+        setVideos(data);
+      } catch (err) {
+        console.error('Error fetching videos:', err);
+        setError('Failed to load videos.');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const visibleVideos = videosData.slice(0, visibleRows * 4); // Calculate visible videos based on rows
+    fetchVideos();
+  }, []);
+
+  const showMoreVideos = () => setVisibleVideos((prev) => prev + 4);
 
   return (
     <div className="videos-page">
-      {/* Navigation buttons */}
       <div className="navigation">
         <Link to="/wellness-library-books">
           <button className="nav-button">Books</button>
@@ -247,19 +47,24 @@ const VideosPage = () => {
           <button className="nav-button">Videos</button>
         </Link>
       </div>
-      
-      {/* Videos Grid */}
-      <div className="videos-grid">
-        {visibleVideos.map((video, index) => (
-          <VideoCard key={index} video={video} index={index} />
-        ))}
-      </div>
 
-      {/* More Button */}
-      {visibleRows * 4 < videosData.length && (
-        <div className="more-button">
-          <button onClick={showMoreVideos}>More...</button>
-        </div>
+      {loading && <p>Loading videos...</p>}
+      {error && <p className="error">{error}</p>}
+
+      {!loading && !error && (
+        <>
+          <div className="videos-grid">
+            {videos.slice(0, visibleVideos).map((video) => (
+              <VideoCard key={video._id} video={video} />
+            ))}
+          </div>
+
+          {visibleVideos < videos.length && (
+            <div className="more-button">
+              <button onClick={showMoreVideos}>More...</button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
